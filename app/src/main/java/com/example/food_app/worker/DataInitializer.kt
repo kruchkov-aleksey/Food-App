@@ -1,4 +1,4 @@
-package com.example.food_app.ui.worker
+package com.example.food_app.worker
 
 import android.content.Context
 import android.util.Log

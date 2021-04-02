@@ -9,7 +9,7 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import com.example.food_app.room.dao.FoodDao
 import com.example.food_app.room.entity.Food
-import com.example.food_app.ui.worker.DataInitializer
+import com.example.food_app.worker.DataInitializer
 
 @Database(
     entities = [Food::class],

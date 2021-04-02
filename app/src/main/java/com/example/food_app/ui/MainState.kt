@@ -1,4 +1,4 @@
-package com.example.food_app.ui.worker
+package com.example.food_app.ui
 
 import com.example.food_app.room.entity.Food
 
