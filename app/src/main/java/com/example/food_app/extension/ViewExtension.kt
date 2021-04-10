@@ -1,4 +1,4 @@
-package com.example.food_app.extension
+    package com.example.food_app.extension
 
 import android.app.Activity
 import android.view.View
