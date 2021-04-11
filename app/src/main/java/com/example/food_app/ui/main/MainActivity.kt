@@ -18,6 +18,7 @@ import com.example.food_app.room.entity.Food
 import com.example.food_app.ui.MainViewModel
 import com.example.food_app.ui.adapter.FoodAdapter
 import com.example.food_app.ui.adapter.OnClickListener
+import com.example.food_app.ui.cart.CartActivity
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
@@ -43,6 +44,7 @@ class MainActivity : DaggerAppCompatActivity() {
         getAllList()
         setObserver()
         setRecyclerView()
+        onClick()
     }
 
     private fun init(){
@@ -98,6 +100,11 @@ class MainActivity : DaggerAppCompatActivity() {
         adapter.notifyDataSetChanged()
     }
 
+    fun onClick(){
+        view_bottom.setOnClickListener {
+            CartActivity.start(this)
+        }
+    }
     companion object {
         const val TAG = "MainActivity"
     }
