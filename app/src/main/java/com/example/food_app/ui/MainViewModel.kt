@@ -1,6 +1,8 @@
 package com.example.food_app.ui
 
+import android.nfc.Tag
 import android.util.Log
+import androidx.annotation.MainThread
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.food_app.repo.OrderRepoI
@@ -44,6 +46,20 @@ class MainViewModel(private val orderRepoI: OrderRepoI):ViewModel() {
                 }
 
                 )
+        )
+    }
+    fun getCartList(){
+        Log.d(TAG," >>> Received call to get cart list")
+        state = state.copy(loading = true, success = false, failure = false, list = null)
+        compositeDisposable.add(
+                orderRepoI.getCartItem()
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({
+                            state = state.copy(loading = false, success = true, failure = false, list = it)
+                        },{
+                            state = state.copy(loading = false,success = false,failure = true,message = it.localizedMessage)
+                        })
         )
     }
     private fun publishState(state: MainState){
